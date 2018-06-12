@@ -29,10 +29,12 @@ exports.notifyEvents = functions.firestore.document('users/{vipUid}/events/{even
 
             // Notification details.
             const payload = {
-                notification: {
+                data: {
+                    type: String(change.after.data().type),
                     title: change.after.data().title,
-                    body: change.after.data().body,
-                    sound: "default"
+                    body: change.after.data().body
+                    //date: change.after.data().date
+                    //sound: "default"
                 }
             };
 
